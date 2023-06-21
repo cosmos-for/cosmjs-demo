@@ -48,7 +48,7 @@ function Keplr() {
 		setClient(client);
 	};
 
-	// 余额查询  Todo
+	// 余额查询  Done
 	const getBalances = async () => {
 		if (client) {
 			let balance = client.getBalance(address, chain.stakeCurrency.coinDenom);
@@ -56,7 +56,7 @@ function Keplr() {
 		}
 	};
 
-	// txhash查询  Todo
+	// txhash查询  Done
 	const getTx = async () => {
 		if (tx && client) {
 			let txRes = await client.getTx(address, sendHash);
@@ -64,7 +64,7 @@ function Keplr() {
 		}
 	};
 
-	// 转账 Todo
+	// 转账 Done
 	const sendToken = async () => {
 		if (!client || !recipent || !address) return;
 
@@ -92,18 +92,19 @@ function Keplr() {
 				amount,
 				fee,
 				""
-			)
-			assertIsDeliverTxSuccess(result)
-			console.log(result)
+			);
+			assertIsDeliverTxSuccess(result);
+			console.log(result);
+			
 			if (result.code == 0) {
 				alert(
 					"transfer success height:" + result.height +
 					"hash:" + result.transactionHash
-				)
-				setTx(result.transactionHash)
-			}
+				);
+				setTx(result.transactionHash);
+			};
 		} catch (e) {
-			console.log(e)
+			console.log(e);
 		}
 	};
 
